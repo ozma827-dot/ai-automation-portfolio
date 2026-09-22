@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "synthetic_demo": true,
+  "accepted_count": 1,
+  "rejected_count": 1,
+  "duplicate_count": 1,
+  "accepted_route": "CRM_AUTOMATION",
+  "downstream": "COMPLETED_AFTER_RETRY_2"
+}
