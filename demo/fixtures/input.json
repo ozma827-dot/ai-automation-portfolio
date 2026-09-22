@@ -1,0 +1,29 @@
+[
+  {
+    "lead_id": "SYN-001",
+    "email": " Buyer@Example.com ",
+    "company": "Example Systems",
+    "need": "n8n and CRM workflow automation",
+    "urgency": "ASAP",
+    "budget": 250,
+    "source": "synthetic-webhook"
+  },
+  {
+    "lead_id": "SYN-002",
+    "email": "buyer@example.com",
+    "company": "Example Systems",
+    "need": "duplicate intake",
+    "urgency": "normal",
+    "budget": 100,
+    "source": "synthetic-webhook"
+  },
+  {
+    "lead_id": "SYN-003",
+    "email": "not-an-email",
+    "company": "Incomplete Systems",
+    "need": "workflow review",
+    "urgency": "normal",
+    "budget": 100,
+    "source": "synthetic-webhook"
+  }
+]
