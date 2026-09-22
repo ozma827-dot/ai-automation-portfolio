@@ -6,80 +6,30 @@ Owner identity: WEN JING
 
 ## Featured Demo
 
-This credential-free Synthetic AI Automation Demo processes lead-like records from a JSON webhook fixture. It demonstrates:
+This credential-free Synthetic AI Automation Demo processes lead-like records from a JSON webhook fixture. It demonstrates required-field validation, normalization, duplicate suppression, changed-record conflict detection, task/source isolation, exception routing, replay-safe behavior and deterministic output.
 
-- required-field validation;
-- data normalization;
-- duplicate suppression;
-- changed-record conflict detection through deterministic duplicate handling;
-- task/source isolation at the input boundary;
-- exception routing to structured rejection or human review;
-- replay-safe behavior for duplicate inputs;
-- deterministic JSON output;
-- bounded retry handling;
-- automated tests.
+Verified test result: 35 automated tests / 35 executed (26 lead-routing tests and 9 HTTP reliability tests).
 
-The verified test command currently passes **26 automated tests / 26 executed**.
+## Reference Implementation — Webhook-to-Ledger Reliability
+
+The [Webhook-to-Ledger Reliability Reference](reference-implementations/webhook-ledger-reliability/README.md) exercises an HTTP boundary between two local Node.js mock servers: validation, stable idempotency, conflicting-payload detection, bounded retries, human-review routing and sanitized audit events.
+
+A test simulates a ledger write succeeding before its response is lost; retrying with the same key creates exactly one record. This is a synthetic local demonstration, not a client case study or a QuickBooks, Katana, Make, n8n or production integration.
 
 ## What it does
 
-The workflow validates required fields, normalizes email addresses, suppresses duplicate normalized emails, classifies fit and urgency, and routes accepted records to either `CRM_AUTOMATION` or `HUMAN_REVIEW`. Invalid records remain visible with field-level errors.
+The lead-routing workflow validates required fields, normalizes email addresses, suppresses duplicates, classifies fit and urgency, and routes records for automation or human review. Invalid records remain visible with field-level errors.
 
-## Architecture
+## Run and test
 
-```text
-Webhook / JSON input
-        |
-        v
-Validate required fields ---- invalid ----> structured error + human review
-        |
-        v
-Normalize fields and email
-        |
-        v
-Deduplicate by normalized email
-        |
-        v
-Classify fit and urgency
-        |
-        +---- high fit + urgent + budget ----> CRM_AUTOMATION
-        |
-        +---- otherwise ---------------------> HUMAN_REVIEW
-        |
-        v
-Auditable deterministic JSON result
-```
+    node demo/run_demo.mjs
+    node reference-implementations/webhook-ledger-reliability/demo.mjs
+    npm test
 
-The credential-free n8n-style representation is in [`demo/workflow.json`](demo/workflow.json), with a visual diagram in [`demo/assets/architecture.svg`](demo/assets/architecture.svg).
-
-## Inputs
-
-Required fields are `lead_id`, `email`, `company`, and `need`. Optional fields are `urgency`, `budget`, and `source`. The checked-in sample is synthetic and contains no client data or credentials: [`demo/fixtures/input.json`](demo/fixtures/input.json).
-
-## Outputs
-
-The program returns normalized accepted records, field-level rejections, duplicate records, routing decisions, retry status, and audit counts. The checked-in expected summary is [`demo/fixtures/expected.json`](demo/fixtures/expected.json).
-
-## Failure paths and handoff
-
-- Missing required fields are rejected before routing.
-- Invalid email-like values are rejected with a readable reason.
-- Duplicate normalized emails are suppressed deterministically.
-- A transient downstream step retries with a bounded attempt limit.
-- Exhausted retries remain visible and can be sent to human review; the demo never silently treats failure as success.
-- No network call, production CRM write, payment action, or external credential is used.
-
-## Run it
-
-```bash
-node demo/run_demo.mjs
-npm test
-```
-
-The public proof bundle includes the source, fixtures, test suite, workflow representation, and a generated test-evidence PDF: [`proof/proof.pdf`](proof/proof.pdf).
+The public proof bundle includes source, fixtures, tests, workflow representation and [proof.pdf](proof/proof.pdf).
 
 ## Authenticity boundary
 
-**Synthetic technical demonstration. Not a client case study.**
+Synthetic technical demonstration. Not a client case study.
 
-This repository makes no claim of production deployment, customer results, revenue, prior employment, education, or client work. The demo does not connect to n8n, a CRM, an LLM provider, a payment system, or a production account. Real integrations would require buyer-owned credentials, an agreed schema, acceptance tests, and a funded scope.
+No claim of production deployment, customer results, revenue, employment, education or client work. The original lead-routing demo makes no network calls; the reliability reference makes HTTP calls only between local mock servers. Neither connects to n8n, CRM, LLM, payment systems, QuickBooks, Katana, Make or a production account. A real integration would require buyer-owned credentials, an agreed schema, acceptance tests and funded scope.
