@@ -1,0 +1,22 @@
+{
+  "name": "AI Automation Demo - Synthetic Lead Routing",
+  "synthetic_demo": true,
+  "credentials": [],
+  "nodes": [
+    { "name": "Webhook Input", "type": "n8n-nodes-base.webhook" },
+    { "name": "Validate Required Fields", "type": "n8n-nodes-base.code" },
+    { "name": "Normalize Email", "type": "n8n-nodes-base.code" },
+    { "name": "Deduplicate", "type": "n8n-nodes-base.code" },
+    { "name": "Classify Fit and Urgency", "type": "n8n-nodes-base.code" },
+    { "name": "Route to CRM or Human Review", "type": "n8n-nodes-base.if" },
+    { "name": "Auditable JSON Output", "type": "n8n-nodes-base.respondToWebhook" }
+  ],
+  "connections": {
+    "Webhook Input": ["Validate Required Fields"],
+    "Validate Required Fields": ["Normalize Email"],
+    "Normalize Email": ["Deduplicate"],
+    "Deduplicate": ["Classify Fit and Urgency"],
+    "Classify Fit and Urgency": ["Route to CRM or Human Review"],
+    "Route to CRM or Human Review": ["Auditable JSON Output"]
+  }
+}
