@@ -1,0 +1,7 @@
+{
+  "event_id": "evt_synthetic_001",
+  "source_record_id": "order_synthetic_1042",
+  "customer_ref": "customer_synthetic_208",
+  "currency": "usd",
+  "amount_minor": 12500
+}
