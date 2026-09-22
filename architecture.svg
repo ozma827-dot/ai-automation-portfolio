@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic AI automation demo architecture</title>
+  <desc id="desc">A credential-free workflow from webhook input through validation, normalization, deduplication, classification and routing.</desc>
+  <defs>
+    <style>
+      .box { fill:#f8fafc; stroke:#1f4e78; stroke-width:3; rx:16; }
+      .decision { fill:#ecfdf5; stroke:#166534; stroke-width:3; rx:16; }
+      .error { fill:#fff7ed; stroke:#c2410c; stroke-width:3; rx:16; }
+      .label { font: 700 22px Arial, sans-serif; fill:#17365d; text-anchor:middle; }
+      .small { font: 16px Arial, sans-serif; fill:#334155; text-anchor:middle; }
+      .arrow { stroke:#64748b; stroke-width:4; fill:none; marker-end:url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1500" height="500" fill="#ffffff"/>
+  <text x="750" y="42" font-family="Arial" font-size="30" font-weight="700" text-anchor="middle" fill="#17365d">AI AUTOMATION DEMO — SYNTHETIC / NO CLIENT DATA</text>
+  <rect class="box" x="35" y="170" width="180" height="110"/><text class="label" x="125" y="215">Webhook</text><text class="small" x="125" y="246">JSON input</text>
+  <rect class="box" x="260" y="170" width="180" height="110"/><text class="label" x="350" y="215">Validate</text><text class="small" x="350" y="246">required fields</text>
+  <rect class="box" x="485" y="170" width="180" height="110"/><text class="label" x="575" y="215">Normalize</text><text class="small" x="575" y="246">email + fields</text>
+  <rect class="box" x="710" y="170" width="180" height="110"/><text class="label" x="800" y="215">Deduplicate</text><text class="small" x="800" y="246">normalized email</text>
+  <rect class="decision" x="935" y="170" width="210" height="110"/><text class="label" x="1040" y="215">Classify</text><text class="small" x="1040" y="246">fit + urgency</text>
+  <rect class="decision" x="1190" y="170" width="260" height="110"/><text class="label" x="1320" y="215">Route</text><text class="small" x="1320" y="246">CRM / human review</text>
+  <path class="arrow" d="M215 225 H260"/><path class="arrow" d="M440 225 H485"/><path class="arrow" d="M665 225 H710"/><path class="arrow" d="M890 225 H935"/><path class="arrow" d="M1145 225 H1190"/>
+  <rect class="error" x="260" y="350" width="260" height="82"/><text class="label" x="390" y="386">Structured error</text><text class="small" x="390" y="411">→ human review</text>
+  <path class="arrow" d="M350 280 V350"/>
+  <text x="750" y="470" font-family="Arial" font-size="18" text-anchor="middle" fill="#64748b">Bounded retry • no credentials • deterministic tests • auditable JSON output</text>
+</svg>

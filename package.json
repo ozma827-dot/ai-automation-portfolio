@@ -1,0 +1,9 @@
+{
+  "name": "ai-automation-portfolio",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "demo": "node demo/run_demo.mjs",
+    "test": "node --test tests/*.test.mjs demo/workflow.test.mjs"
+  }
+}
