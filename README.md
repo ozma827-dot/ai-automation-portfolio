@@ -60,3 +60,8 @@ WEN JING — available for scoped project-based automation work. Please use the 
 **Synthetic technical demonstration. Not a client case study.**
 
 This repository makes no claim of production deployment, customer results, revenue, prior employment, education, or client work. The examples use synthetic fixtures; local HTTP demos never call external providers. No client tax/accounting data or credentials are present. Real integrations would require buyer-authorized access, an agreed schema, acceptance tests, and funded scope.
+
+
+## Real Platform Execution
+
+- [Make scenario execution proof](real-platform-execution/make/) — executed on Make with synthetic data; not client work. Persistent cross-run duplicate handling remains unproven.
