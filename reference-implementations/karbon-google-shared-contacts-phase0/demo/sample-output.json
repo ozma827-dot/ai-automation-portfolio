@@ -1,0 +1,9 @@
+{
+  "webhookAccepted": 1,
+  "webhookDuplicates": 1,
+  "fullRecordFetches": 1,
+  "identityDecision": "CREATE",
+  "contactCreateStatus": 201,
+  "logicalWrites": 1,
+  "externalCalls": 0
+}
