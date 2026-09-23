@@ -64,4 +64,4 @@ This repository makes no claim of production deployment, customer results, reven
 
 ## Real Platform Execution
 
-- [Make scenario execution proof](real-platform-execution/make/) — executed on Make with synthetic data; not client work. Persistent cross-run duplicate handling remains unproven.
+- [Make scenario execution proof](real-platform-execution/make/) — executed on Make with synthetic data; not client work. In the corrected replay, the duplicate route handled 1 bundle, new-event and store-write routes handled 0, execution succeeded, and the Data Store remained at 1 record. This documents only the tested synthetic scenario, not production or concurrency guarantees.

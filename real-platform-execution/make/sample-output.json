@@ -1,15 +1,15 @@
 {
   "observed_execution_summary": {
     "platform": "Make",
-    "initial_data_store_write_status": "success",
-    "last_replay_status": "error",
-    "run_once_executions_across_build_iterations": 7,
+    "run_once_executions_across_scenario_iterations": 8,
     "executions_before_data_store_check": 5,
-    "executions_after_data_store_check": 2
+    "executions_after_data_store_check": 3,
+    "corrected_replay_status": "success",
+    "corrected_replay_operations": 5
   },
   "observed_data_store_state": {
     "name": "revenue-proof-events",
-    "record_count_after_replay": 1,
+    "record_count_after_corrected_replay": 1,
     "record_key": "make-demo-100",
     "record_size_bytes": 46,
     "store_capacity_bytes": 1048576
@@ -19,9 +19,11 @@
     "event_id": "make-demo-100",
     "duplicate_route_bundles": 1,
     "new_event_route_bundles": 0,
-    "add_replace_module_result": "Duplicate key error. A record with the same key exists or was already inserted in this scenario.",
-    "scenario_status": "error",
-    "persistent_idempotency_proven": false
+    "store_new_event_route_bundles": 0,
+    "add_replace_module_executed": false,
+    "scenario_status": "success",
+    "persistent_duplicate_suppression_proven_for_same_synthetic_event": true,
+    "scope_note": "Observed for this same synthetic event_id in this Make scenario only; not a concurrency test or production reliability claim."
   },
-  "notes": "Sanitized summary of observed Make UI state and run history; not a raw module output bundle. The duplicate route ran, but the replay did not complete as a successful no-op."
+  "notes": "Sanitized summary of observed Make UI state and run history; not a raw execution bundle. The corrected replay was a successful no-write duplicate path, and the Data Store remained at one record."
 }
