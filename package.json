@@ -5,6 +5,7 @@
   "scripts": {
     "demo": "node demo/run_demo.mjs",
     "reliability-demo": "node reference-implementations/webhook-ledger-reliability/demo.mjs",
-    "test": "node --test tests/*.test.mjs demo/workflow.test.mjs reference-implementations/webhook-ledger-reliability/test/*.test.mjs"
+    "karbon-google-demo": "node reference-implementations/karbon-google-shared-contacts-phase0/demo.mjs",
+    "test": "node --test tests/*.test.mjs demo/workflow.test.mjs reference-implementations/webhook-ledger-reliability/test/*.test.mjs reference-implementations/karbon-google-shared-contacts-phase0/test/*.test.mjs"
   }
 }
