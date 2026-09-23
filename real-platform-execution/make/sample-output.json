@@ -1,0 +1,21 @@
+{
+  "observed_execution_summary": {
+    "platform": "Make",
+    "status": "completed",
+    "run_once_executions_across_build_iterations": 6,
+    "executions_before_data_store_check": 5,
+    "execution_after_data_store_check": 1
+  },
+  "observed_data_store_state": {
+    "name": "revenue-proof-events",
+    "record_count": 1,
+    "record_key": "make-demo-100",
+    "record_size_bytes": 46,
+    "store_capacity_bytes": 1048576
+  },
+  "duplicate_replay_test": {
+    "performed": false,
+    "persistent_idempotency_proven": false
+  },
+  "notes": "Sanitized summary of the Make UI observations; not a raw module output bundle."
+}
